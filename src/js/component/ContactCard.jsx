@@ -15,14 +15,14 @@ export const ContactCard = ({ contact }) => {
     return (
         <div className="card mb-3">
             <div className="row g-0">
-                <div className="col-md-2">
+                <div className="col-md-2 d-flex align-items-center">
                     <img 
-                        src="https://via.placeholder.com/150"
-                        className="img-fluid rounded-circle m-3" 
+                        src={`https://avatar.iran.liara.run/username?username=${contact.name}`}
+                        className="img-fluid rounded-circle m-2" 
                         alt={contact.name}
                     />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-8 d-flex align-items-center">
                     <div className="card-body">
                         <h5 className="card-title">{contact.name}</h5>
                         <p className="card-text">

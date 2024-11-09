@@ -34,7 +34,7 @@ export const AddContact = () => {
     }
   }, [id, store.contacts]); 
 
-  const handleSubmit = async (e) => {
+  const createorupdate = async (e) => {
     e.preventDefault();
     if (id) {
       await actions.updateContact(id, contact);
@@ -49,7 +49,7 @@ export const AddContact = () => {
       <h1 className="text-center mt-5">
         {id ? "Edit Contact" : "Add a new contact"}
       </h1>
-      <form onSubmit={handleSubmit} className="my-5">
+      <form onSubmit={createorupdate} className="my-5">
         <div className="mb-3">
           <label className="form-label">Full Name</label>
           <input
