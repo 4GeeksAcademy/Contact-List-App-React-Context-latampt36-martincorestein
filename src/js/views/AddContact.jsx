@@ -87,16 +87,16 @@ export const AddContact = () => {
             onChange={(e) => setContact({ ...contact, address: e.target.value })}
           />
         </div>
-        <div className="d-flex justify-content-end">
-          <button type="submit" className="btn btn-primary">
+        <div className="d-flex flex-column w-100">
+          <button type="submit" className="btn btn-primary w-100 mb-2">
             {id ? "Update" : "Save"}
           </button>
           <button 
             type="button" 
-            className="btn btn-link" 
+            className="btn btn-link align-self-start p-0" 
             onClick={() => navigate("/")}
           >
-            Go back to contacts
+          or get back to contacts
           </button>
         </div>
       </form>
