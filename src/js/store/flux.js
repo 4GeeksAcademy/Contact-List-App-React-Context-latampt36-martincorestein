@@ -14,36 +14,31 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ loading: true, error: null });
 
                 try {
-                    // Agenda existe?
                     const checkResponse = await fetch(`https://playground.4geeks.com/contact/agendas/${store.agenda_slug}`);
                     
                     if (checkResponse.status === 404) {
-                        // No existe, creamos
                         const createResponse = await fetch(`https://playground.4geeks.com/contact/agendas/${store.agenda_slug}`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
                             },
                             body: JSON.stringify({
-                                agenda_slug: store.agenda_slug
-                            })
+                                agenda_slug: store.agenda_slug,
+                            }),
                         });
 
                         if (!createResponse.ok) {
                             throw new Error(`Failed to create agenda: ${createResponse.status}`);
                         }
-
-                        console.log('Agenda created successfully');
-                        return true;
+                        console.log("Agenda created successfully");
                     } else if (!checkResponse.ok) {
                         throw new Error(`Error checking agenda: ${checkResponse.status}`);
                     }
-					console.log('Agenda already exists');
-                    return true;
+
+                    console.log("Agenda verified successfully");
                 } catch (error) {
                     console.error("Error in verifyAndCreateAgenda:", error);
                     setStore({ error: "Failed to verify or create agenda" });
-                    return false;
                 } finally {
                     setStore({ loading: false });
                 }
