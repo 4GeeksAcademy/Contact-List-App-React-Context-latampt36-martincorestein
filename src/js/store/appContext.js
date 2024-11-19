@@ -32,7 +32,7 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 			
-			state.actions.loadContacts(); // Carga los contactos cuando la aplicación inicia
+			// state.actions.loadContacts(); // Carga los contactos cuando la aplicación inicia
 			state.actions.verifyAndCreateAgenda();
 
 		}, []);

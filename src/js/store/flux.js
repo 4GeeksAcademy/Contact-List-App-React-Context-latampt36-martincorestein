@@ -55,11 +55,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 
                 try {
                     
-                    const agendaExists = await getActions().verifyAndCreateAgenda();
-                    if (!agendaExists) {
-                        throw new Error("Failed to verify or create agenda");
-                    }
-
                     const response = await fetch(`https://playground.4geeks.com/contact/agendas/${store.agenda_slug}`);
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
